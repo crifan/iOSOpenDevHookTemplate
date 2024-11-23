@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		98CF52252CF1685D00481C0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CF52242CF1685D00481C0B /* Foundation.framework */; };
+		98CF52302CF1685D00481C0B /* iOSOpenDevHookTemplate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF522F2CF1685D00481C0B /* iOSOpenDevHookTemplate.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		98CF52212CF1685D00481C0B /* iOSOpenDevHookTemplate.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = iOSOpenDevHookTemplate.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		98CF52242CF1685D00481C0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		98CF52292CF1685D00481C0B /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = control.txt; sourceTree = "<group>"; };
+		98CF522A2CF1685D00481C0B /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		98CF522C2CF1685D00481C0B /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PackageVersion.plist; path = ../PackageVersion.plist; sourceTree = "<group>"; };
+		98CF522D2CF1685D00481C0B /* iOSOpenDevHookTemplate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iOSOpenDevHookTemplate-Prefix.pch"; path = "../iOSOpenDevHookTemplate-Prefix.pch"; sourceTree = "<group>"; };
+		98CF522E2CF1685D00481C0B /* iOSOpenDevHookTemplate.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSOpenDevHookTemplate.xm; sourceTree = "<group>"; };
+		98CF522F2CF1685D00481C0B /* iOSOpenDevHookTemplate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSOpenDevHookTemplate.mm; sourceTree = "<group>"; };
+		98CF52342CF1685D00481C0B /* iOSOpenDevHookTemplate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOSOpenDevHookTemplate.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		98CF521D2CF1685D00481C0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98CF52252CF1685D00481C0B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		98CF52162CF1685D00481C0B = {
+			isa = PBXGroup;
+			children = (
+				98CF52262CF1685D00481C0B /* iOSOpenDevHookTemplate */,
+				98CF52232CF1685D00481C0B /* Frameworks */,
+				98CF52222CF1685D00481C0B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		98CF52222CF1685D00481C0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52212CF1685D00481C0B /* iOSOpenDevHookTemplate.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98CF52232CF1685D00481C0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52242CF1685D00481C0B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		98CF52262CF1685D00481C0B /* iOSOpenDevHookTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				98CF522E2CF1685D00481C0B /* iOSOpenDevHookTemplate.xm */,
+				98CF522F2CF1685D00481C0B /* iOSOpenDevHookTemplate.mm */,
+				98CF52272CF1685D00481C0B /* Package */,
+				98CF522B2CF1685D00481C0B /* Supporting Files */,
+			);
+			path = iOSOpenDevHookTemplate;
+			sourceTree = "<group>";
+		};
+		98CF52272CF1685D00481C0B /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52282CF1685D00481C0B /* DEBIAN */,
+				98CF52312CF1685D00481C0B /* Library */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		98CF52282CF1685D00481C0B /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52292CF1685D00481C0B /* control.txt */,
+				98CF522A2CF1685D00481C0B /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		98CF522B2CF1685D00481C0B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				98CF522C2CF1685D00481C0B /* PackageVersion.plist */,
+				98CF522D2CF1685D00481C0B /* iOSOpenDevHookTemplate-Prefix.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		98CF52312CF1685D00481C0B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52322CF1685D00481C0B /* MobileSubstrate */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		98CF52322CF1685D00481C0B /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52332CF1685D00481C0B /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		98CF52332CF1685D00481C0B /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52342CF1685D00481C0B /* iOSOpenDevHookTemplate.plist */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		98CF521E2CF1685D00481C0B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		98CF52202CF1685D00481C0B /* iOSOpenDevHookTemplate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98CF52372CF1685D00481C0B /* Build configuration list for PBXNativeTarget "iOSOpenDevHookTemplate" */;
+			buildPhases = (
+				98CF521B2CF1685D00481C0B /* ShellScript */,
+				98CF521C2CF1685D00481C0B /* Sources */,
+				98CF521D2CF1685D00481C0B /* Frameworks */,
+				98CF521E2CF1685D00481C0B /* Headers */,
+				98CF521F2CF1685D00481C0B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSOpenDevHookTemplate;
+			productName = iOSOpenDevHookTemplate;
+			productReference = 98CF52212CF1685D00481C0B /* iOSOpenDevHookTemplate.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98CF52172CF1685D00481C0B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					98CF52202CF1685D00481C0B = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 98CF521A2CF1685D00481C0B /* Build configuration list for PBXProject "iOSOpenDevHookTemplate" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 98CF52162CF1685D00481C0B;
+			productRefGroup = 98CF52222CF1685D00481C0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				98CF52202CF1685D00481C0B /* iOSOpenDevHookTemplate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		98CF521B2CF1685D00481C0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		98CF521F2CF1685D00481C0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		98CF521C2CF1685D00481C0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98CF52302CF1685D00481C0B /* iOSOpenDevHookTemplate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		98CF52352CF1685D00481C0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		98CF52362CF1685D00481C0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		98CF52382CF1685D00481C0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3WRHBBSBW4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSOpenDevHookTemplate/iOSOpenDevHookTemplate-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		98CF52392CF1685D00481C0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3WRHBBSBW4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSOpenDevHookTemplate/iOSOpenDevHookTemplate-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		98CF521A2CF1685D00481C0B /* Build configuration list for PBXProject "iOSOpenDevHookTemplate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98CF52352CF1685D00481C0B /* Debug */,
+				98CF52362CF1685D00481C0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98CF52372CF1685D00481C0B /* Build configuration list for PBXNativeTarget "iOSOpenDevHookTemplate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98CF52382CF1685D00481C0B /* Debug */,
+				98CF52392CF1685D00481C0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98CF52172CF1685D00481C0B /* Project object */;
+}
