@@ -23,7 +23,9 @@
 		98CF52582CF16C9F00481C0B /* crifanLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524A2CF16C9F00481C0B /* crifanLib.c */; };
 		98CF52592CF16C9F00481C0B /* CrifanLibDemo.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524B2CF16C9F00481C0B /* CrifanLibDemo.c */; };
 		98CF525A2CF16C9F00481C0B /* JailbreakPathList.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */; };
-		98CF525D2CF16E3E00481C0B /* hook_iOSCommonClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF525C2CF16E3E00481C0B /* hook_iOSCommonClass.mm */; };
+		98CF526A2CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52682CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm */; };
+		98CF526B2CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52692CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm */; };
+		98CF52802CF1CEAF00481C0B /* hook_native_misc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF527F2CF1CEAF00481C0B /* hook_native_misc.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +37,6 @@
 		98CF522D2CF1685D00481C0B /* iOSOpenDevHookTemplate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iOSOpenDevHookTemplate-Prefix.pch"; path = "../iOSOpenDevHookTemplate-Prefix.pch"; sourceTree = "<group>"; };
 		98CF52342CF1685D00481C0B /* iOSOpenDevHookTemplate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOSOpenDevHookTemplate.plist; sourceTree = "<group>"; };
 		98CF523A2CF1693000481C0B /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
-		98CF523C2CF16C6000481C0B /* hook_iOSCommonClass.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_iOSCommonClass.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		98CF523E2CF16C9F00481C0B /* HookLogiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HookLogiOS.m; sourceTree = "<group>"; };
 		98CF523F2CF16C9F00481C0B /* JailbreakiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JailbreakiOS.m; sourceTree = "<group>"; };
 		98CF52402CF16C9F00481C0B /* OpenFileiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenFileiOS.h; sourceTree = "<group>"; };
@@ -50,7 +51,12 @@
 		98CF524A2CF16C9F00481C0B /* crifanLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crifanLib.c; sourceTree = "<group>"; };
 		98CF524B2CF16C9F00481C0B /* CrifanLibDemo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CrifanLibDemo.c; sourceTree = "<group>"; };
 		98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = JailbreakPathList.c; sourceTree = "<group>"; };
-		98CF525C2CF16E3E00481C0B /* hook_iOSCommonClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOSCommonClass.mm; sourceTree = "<group>"; };
+		98CF52662CF1BB9000481C0B /* hook_iOS_ObjC_CommonClass.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_CommonClass.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		98CF52672CF1BC2000481C0B /* hook_iOS_ObjC_specific.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_specific.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		98CF52682CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_CommonClass.mm; sourceTree = "<group>"; };
+		98CF52692CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_specific.mm; sourceTree = "<group>"; };
+		98CF527E2CF1CAAD00481C0B /* hook_native_misc.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_native_misc.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		98CF527F2CF1CEAF00481C0B /* hook_native_misc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_native_misc.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				98CF525B2CF16CA300481C0B /* libs */,
-				98CF525C2CF16E3E00481C0B /* hook_iOSCommonClass.mm */,
-				98CF523C2CF16C6000481C0B /* hook_iOSCommonClass.xm */,
+				98CF527D2CF1CA5E00481C0B /* hook_native */,
+				98CF526C2CF1BDFB00481C0B /* hook_iOS */,
 				98CF52272CF1685D00481C0B /* Package */,
 				98CF522B2CF1685D00481C0B /* Supporting Files */,
 			);
@@ -192,6 +198,26 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
+		98CF526C2CF1BDFB00481C0B /* hook_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52662CF1BB9000481C0B /* hook_iOS_ObjC_CommonClass.xm */,
+				98CF52682CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm */,
+				98CF52672CF1BC2000481C0B /* hook_iOS_ObjC_specific.xm */,
+				98CF52692CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm */,
+			);
+			name = hook_iOS;
+			sourceTree = "<group>";
+		};
+		98CF527D2CF1CA5E00481C0B /* hook_native */ = {
+			isa = PBXGroup;
+			children = (
+				98CF527E2CF1CAAD00481C0B /* hook_native_misc.xm */,
+				98CF527F2CF1CEAF00481C0B /* hook_native_misc.mm */,
+			);
+			name = hook_native;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -279,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos\n";
 		};
 		98CF521F2CF1685D00481C0B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -296,7 +322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -305,9 +331,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98CF525D2CF16E3E00481C0B /* hook_iOSCommonClass.mm in Sources */,
 				98CF524D2CF16C9F00481C0B /* HookLogiOS.m in Sources */,
+				98CF52802CF1CEAF00481C0B /* hook_native_misc.mm in Sources */,
 				98CF52592CF16C9F00481C0B /* CrifanLibDemo.c in Sources */,
+				98CF526B2CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm in Sources */,
+				98CF526A2CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm in Sources */,
 				98CF525A2CF16C9F00481C0B /* JailbreakPathList.c in Sources */,
 				98CF52582CF16C9F00481C0B /* crifanLib.c in Sources */,
 				98CF524E2CF16C9F00481C0B /* JailbreakiOS.m in Sources */,
@@ -382,6 +410,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSOpenDevHookTemplate/iOSOpenDevHookTemplate-Prefix.pch";
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LIBRARY_SEARCH_PATHS = (
@@ -391,6 +420,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.1.22;
@@ -411,6 +441,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSOpenDevHookTemplate/iOSOpenDevHookTemplate-Prefix.pch";
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LIBRARY_SEARCH_PATHS = (
@@ -420,6 +451,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.1.22;

@@ -1,15 +1,14 @@
 /*
-    File: hook_iOSCommonClass.xm
-    Function: hook iOS common class related functions
+    File: hook_iOS_ObjC_CommonClass.xm
+    Function: hook iOS ObjC common class related functions
     Author: Crifan Li
 */
 
-static NSString* LastUpdate = @"20241123_1158";
+static NSString* LastUpdate = @"20241123_1531";
 
 #import "HookLogiOS.h"
 #import "CrifanLib.h"
 #import "CrifanLibiOS.h"
-
 
 /*------------------------------------------------------------------------------
  Const
@@ -161,7 +160,6 @@ void hookNSString_commonLogic(NSString* curStr){
 
 %end
 
-
 /*------------------------------------------------------------------------------
  NSDictionary
 ------------------------------------------------------------------------------*/
@@ -184,6 +182,14 @@ void hookNSString_commonLogic(NSString* curStr){
         iosLogInfo("  [%lu] %{public}@=%{public}@", i, curKey, curValObj);
     }
     return retNewDict;
+}
+
+//+ (NSDictionary<NSString *,ObjectType> *)dictionaryWithContentsOfURL:(NSURL *)url error:(NSError * _Nullable *)error{
+//    NSDictionary<NSString *,ObjectType>* origDict = %orig;
++ (NSDictionary<NSString *, id> *)dictionaryWithContentsOfURL:(NSURL *)url error:(NSError * _Nullable *)error{
+    NSDictionary<NSString *, id>* origDict = %orig;
+    iosLogInfo("url=%{public}@ -> origDict=%{public}@", url, origDict);
+    return origDict;
 }
 
 %end
@@ -346,10 +352,97 @@ void hookNSString_commonLogic(NSString* curStr){
 
 %end
 
+/*------------------------------------------------------------------------------
+ UIDevice
+------------------------------------------------------------------------------*/
+
+%hook UIDevice
+
+- (NSString *)name
+{
+    NSString* origName = %orig;
+    iosLogInfo("origName=%{public}@", origName);
+    return origName;
+}
+
+- (NSString *)systemName
+{
+    NSString* origSystemNameName = %orig;
+    iosLogInfo("origSystemNameName=%{public}@", origSystemNameName);
+    return origSystemNameName;
+}
+
+- (NSString *)systemVersion
+{
+    NSString* origSystemVersion = %orig;
+    iosLogInfo("origSystemVersion=%{public}@", origSystemVersion);
+    return origSystemVersion;
+}
+
+- (NSString *)model
+{
+    NSString* origModel = %orig;
+    iosLogInfo("origModel=%{public}@", origModel);
+    return origModel;
+}
+
+- (NSUUID *)identifierForVendor
+{
+    NSUUID* origIdfv = %orig;
+    iosLogInfo("origIdfv=%{public}@", origIdfv);
+    return origIdfv;
+}
+
+%end
+
+
+/*------------------------------------------------------------------------------
+ CTCarrier
+------------------------------------------------------------------------------*/
+
+%hook CTCarrier
+
+- (BOOL)allowsVOIP
+{
+    BOOL origAllowsVOIP = %orig;
+    iosLogInfo("origAllowsVOIP=%s", boolToStr(origAllowsVOIP));
+    return origAllowsVOIP;
+}
+
+- (NSString *)carrierName
+{
+    NSString* origCarrierName = %orig;
+    iosLogInfo("origCarrierName=%{public}@", origCarrierName);
+    return origCarrierName;
+}
+
+- (NSString *)isoCountryCode
+{
+    NSString* origIsoCountryCode = %orig;
+    iosLogInfo("origIsoCountryCode=%{public}@", origIsoCountryCode);
+    return origIsoCountryCode;
+}
+
+- (NSString *)mobileCountryCode
+{
+    NSString* origMCC = %orig;
+    iosLogInfo("origMCC=%{public}@", origMCC);
+    return origMCC;
+}
+
+- (NSString *)mobileNetworkCode
+{
+    NSString* origMNC = %orig;
+    iosLogInfo("origMNC=%{public}@", origMNC);
+    return origMNC;
+}
+
+%end
+
 /*==============================================================================
  ctor
 ==============================================================================*/
 
 %ctor {
-    iosLogInfo("%@: %s", LastUpdate, "hook_iOSCommonClass ctor");
+    iosLogInfo("%@: %s", LastUpdate, "hook_iOS_ObjC_CommonClass ctor");
 }
