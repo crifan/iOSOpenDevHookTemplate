@@ -1,1 +1,4 @@
 .DS_Store
+iOSOpenDevHookTemplate/Packages
+iOSOpenDevHookTemplate/LatestBuild
+*.dylib

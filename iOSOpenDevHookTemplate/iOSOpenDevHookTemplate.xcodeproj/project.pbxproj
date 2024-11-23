@@ -8,7 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		98CF52252CF1685D00481C0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CF52242CF1685D00481C0B /* Foundation.framework */; };
-		98CF52302CF1685D00481C0B /* iOSOpenDevHookTemplate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF522F2CF1685D00481C0B /* iOSOpenDevHookTemplate.mm */; };
+		98CF523B2CF1693000481C0B /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CF523A2CF1693000481C0B /* libsubstrate.dylib */; };
+		98CF524D2CF16C9F00481C0B /* HookLogiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF523E2CF16C9F00481C0B /* HookLogiOS.m */; };
+		98CF524E2CF16C9F00481C0B /* JailbreakiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF523F2CF16C9F00481C0B /* JailbreakiOS.m */; };
+		98CF524F2CF16C9F00481C0B /* OpenFileiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52402CF16C9F00481C0B /* OpenFileiOS.h */; };
+		98CF52502CF16C9F00481C0B /* CrifanLibiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52412CF16C9F00481C0B /* CrifanLibiOS.h */; };
+		98CF52512CF16C9F00481C0B /* JailbreakiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52422CF16C9F00481C0B /* JailbreakiOS.h */; };
+		98CF52522CF16C9F00481C0B /* HookLogiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52432CF16C9F00481C0B /* HookLogiOS.h */; };
+		98CF52532CF16C9F00481C0B /* OpenFileiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52442CF16C9F00481C0B /* OpenFileiOS.m */; };
+		98CF52542CF16C9F00481C0B /* CrifanLibiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52452CF16C9F00481C0B /* CrifanLibiOS.m */; };
+		98CF52552CF16C9F00481C0B /* CrifanLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52472CF16C9F00481C0B /* CrifanLib.h */; };
+		98CF52562CF16C9F00481C0B /* JailbreakPathList.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52482CF16C9F00481C0B /* JailbreakPathList.h */; };
+		98CF52572CF16C9F00481C0B /* CrifanLibDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = 98CF52492CF16C9F00481C0B /* CrifanLibDemo.h */; };
+		98CF52582CF16C9F00481C0B /* crifanLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524A2CF16C9F00481C0B /* crifanLib.c */; };
+		98CF52592CF16C9F00481C0B /* CrifanLibDemo.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524B2CF16C9F00481C0B /* CrifanLibDemo.c */; };
+		98CF525A2CF16C9F00481C0B /* JailbreakPathList.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */; };
+		98CF525D2CF16E3E00481C0B /* hook_iOSCommonClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF525C2CF16E3E00481C0B /* hook_iOSCommonClass.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,9 +33,24 @@
 		98CF522A2CF1685D00481C0B /* control */ = {isa = PBXFileReference; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
 		98CF522C2CF1685D00481C0B /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = PackageVersion.plist; path = ../PackageVersion.plist; sourceTree = "<group>"; };
 		98CF522D2CF1685D00481C0B /* iOSOpenDevHookTemplate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "iOSOpenDevHookTemplate-Prefix.pch"; path = "../iOSOpenDevHookTemplate-Prefix.pch"; sourceTree = "<group>"; };
-		98CF522E2CF1685D00481C0B /* iOSOpenDevHookTemplate.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = iOSOpenDevHookTemplate.xm; sourceTree = "<group>"; };
-		98CF522F2CF1685D00481C0B /* iOSOpenDevHookTemplate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = iOSOpenDevHookTemplate.mm; sourceTree = "<group>"; };
 		98CF52342CF1685D00481C0B /* iOSOpenDevHookTemplate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = iOSOpenDevHookTemplate.plist; sourceTree = "<group>"; };
+		98CF523A2CF1693000481C0B /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		98CF523C2CF16C6000481C0B /* hook_iOSCommonClass.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_iOSCommonClass.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		98CF523E2CF16C9F00481C0B /* HookLogiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HookLogiOS.m; sourceTree = "<group>"; };
+		98CF523F2CF16C9F00481C0B /* JailbreakiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JailbreakiOS.m; sourceTree = "<group>"; };
+		98CF52402CF16C9F00481C0B /* OpenFileiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenFileiOS.h; sourceTree = "<group>"; };
+		98CF52412CF16C9F00481C0B /* CrifanLibiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrifanLibiOS.h; sourceTree = "<group>"; };
+		98CF52422CF16C9F00481C0B /* JailbreakiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JailbreakiOS.h; sourceTree = "<group>"; };
+		98CF52432CF16C9F00481C0B /* HookLogiOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HookLogiOS.h; sourceTree = "<group>"; };
+		98CF52442CF16C9F00481C0B /* OpenFileiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenFileiOS.m; sourceTree = "<group>"; };
+		98CF52452CF16C9F00481C0B /* CrifanLibiOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrifanLibiOS.m; sourceTree = "<group>"; };
+		98CF52472CF16C9F00481C0B /* CrifanLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrifanLib.h; sourceTree = "<group>"; };
+		98CF52482CF16C9F00481C0B /* JailbreakPathList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JailbreakPathList.h; sourceTree = "<group>"; };
+		98CF52492CF16C9F00481C0B /* CrifanLibDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrifanLibDemo.h; sourceTree = "<group>"; };
+		98CF524A2CF16C9F00481C0B /* crifanLib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crifanLib.c; sourceTree = "<group>"; };
+		98CF524B2CF16C9F00481C0B /* CrifanLibDemo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CrifanLibDemo.c; sourceTree = "<group>"; };
+		98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = JailbreakPathList.c; sourceTree = "<group>"; };
+		98CF525C2CF16E3E00481C0B /* hook_iOSCommonClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOSCommonClass.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98CF52252CF1685D00481C0B /* Foundation.framework in Frameworks */,
+				98CF523B2CF1693000481C0B /* libsubstrate.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +86,7 @@
 		98CF52232CF1685D00481C0B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				98CF523A2CF1693000481C0B /* libsubstrate.dylib */,
 				98CF52242CF1685D00481C0B /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -63,8 +95,9 @@
 		98CF52262CF1685D00481C0B /* iOSOpenDevHookTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				98CF522E2CF1685D00481C0B /* iOSOpenDevHookTemplate.xm */,
-				98CF522F2CF1685D00481C0B /* iOSOpenDevHookTemplate.mm */,
+				98CF525B2CF16CA300481C0B /* libs */,
+				98CF525C2CF16E3E00481C0B /* hook_iOSCommonClass.mm */,
+				98CF523C2CF16C6000481C0B /* hook_iOSCommonClass.xm */,
 				98CF52272CF1685D00481C0B /* Package */,
 				98CF522B2CF1685D00481C0B /* Supporting Files */,
 			);
@@ -122,6 +155,43 @@
 			path = DynamicLibraries;
 			sourceTree = "<group>";
 		};
+		98CF523D2CF16C9F00481C0B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				98CF523E2CF16C9F00481C0B /* HookLogiOS.m */,
+				98CF523F2CF16C9F00481C0B /* JailbreakiOS.m */,
+				98CF52402CF16C9F00481C0B /* OpenFileiOS.h */,
+				98CF52412CF16C9F00481C0B /* CrifanLibiOS.h */,
+				98CF52422CF16C9F00481C0B /* JailbreakiOS.h */,
+				98CF52432CF16C9F00481C0B /* HookLogiOS.h */,
+				98CF52442CF16C9F00481C0B /* OpenFileiOS.m */,
+				98CF52452CF16C9F00481C0B /* CrifanLibiOS.m */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		98CF52462CF16C9F00481C0B /* c */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52472CF16C9F00481C0B /* CrifanLib.h */,
+				98CF52482CF16C9F00481C0B /* JailbreakPathList.h */,
+				98CF52492CF16C9F00481C0B /* CrifanLibDemo.h */,
+				98CF524A2CF16C9F00481C0B /* crifanLib.c */,
+				98CF524B2CF16C9F00481C0B /* CrifanLibDemo.c */,
+				98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */,
+			);
+			path = c;
+			sourceTree = "<group>";
+		};
+		98CF525B2CF16CA300481C0B /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				98CF52462CF16C9F00481C0B /* c */,
+				98CF523D2CF16C9F00481C0B /* iOS */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -129,6 +199,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CF52522CF16C9F00481C0B /* HookLogiOS.h in Headers */,
+				98CF524F2CF16C9F00481C0B /* OpenFileiOS.h in Headers */,
+				98CF52552CF16C9F00481C0B /* CrifanLib.h in Headers */,
+				98CF52572CF16C9F00481C0B /* CrifanLibDemo.h in Headers */,
+				98CF52562CF16C9F00481C0B /* JailbreakPathList.h in Headers */,
+				98CF52512CF16C9F00481C0B /* JailbreakiOS.h in Headers */,
+				98CF52502CF16C9F00481C0B /* CrifanLibiOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98CF52302CF1685D00481C0B /* iOSOpenDevHookTemplate.mm in Sources */,
+				98CF525D2CF16E3E00481C0B /* hook_iOSCommonClass.mm in Sources */,
+				98CF524D2CF16C9F00481C0B /* HookLogiOS.m in Sources */,
+				98CF52592CF16C9F00481C0B /* CrifanLibDemo.c in Sources */,
+				98CF525A2CF16C9F00481C0B /* JailbreakPathList.c in Sources */,
+				98CF52582CF16C9F00481C0B /* crifanLib.c in Sources */,
+				98CF524E2CF16C9F00481C0B /* JailbreakiOS.m in Sources */,
+				98CF52542CF16C9F00481C0B /* CrifanLibiOS.m in Sources */,
+				98CF52532CF16C9F00481C0B /* OpenFileiOS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,7 +340,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -279,7 +363,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -291,7 +375,7 @@
 		98CF52382CF1685D00481C0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WRHBBSBW4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -299,21 +383,28 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSOpenDevHookTemplate/iOSOpenDevHookTemplate-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = "";
+				iOSOpenDevDevice = 192.168.1.22;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
-				iOSOpenDevUsePackageVersionPList = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Debug;
 		};
 		98CF52392CF1685D00481C0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3WRHBBSBW4;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -321,14 +412,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOSOpenDevHookTemplate/iOSOpenDevHookTemplate-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = "";
+				iOSOpenDevDevice = 192.168.1.22;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
-				iOSOpenDevUsePackageVersionPList = YES;
+				iOSOpenDevUsePackageVersionPList = NO;
 			};
 			name = Release;
 		};
