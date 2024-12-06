@@ -1,6 +1,6 @@
 Package: com.crifan.iOSOpenDevHookTemplate
 Name: iOSOpenDevHookTemplate
-Version: 2024.11.23.1650
+Version: 2024.12.06.1747
 Description: Crifan iOSOpenDev hook template demo code
 Section: System
 Depends: firmware (>= 5.0), mobilesubstrate

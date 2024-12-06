@@ -4,7 +4,7 @@
     Author: Crifan Li
 */
 
-static NSString* LastUpdate = @"20241123_1531";
+static NSString* LastUpdate = @"20241206_1746";
 
 #import "HookLogiOS.h"
 #import "CrifanLib.h"
@@ -17,18 +17,68 @@ static NSString* LastUpdate = @"20241123_1531";
 NSString* Str_apple = @"apple";
 NSString* Str_Preferences = @"Preferences";
 
+
+/*
+ for omit these hook log:
+
+ 默认	17:37:30.604506+0800	SpringBoard	hook_iOS_ObjC_CommonClass.xm NSDictionary$dictionaryWithObjects$forKeys$count$:   [0] NSFont=<UICTFont: 0x1018970f0> font-family: ".SFUIText-Semibold"; font-weight: bold; font-style: normal; font-size: 17.00pt
+
+ 默认    17:37:30.104465+0800    SpringBoard    hook_iOS_ObjC_CommonClass.xm NSDictionary$dictionaryWithObjects$forKeys$count$:   [0] FBApplicationStoreRepositoryChangeKey=PendingNotificationRecords
+ 默认    17:37:30.104679+0800    SpringBoard    hook_iOS_ObjC_CommonClass.xm NSDictionary$dictionaryWithObjects$forKeys$count$:   [1] FBApplicationStoreRepositoryChangeApp=com.apple.CoreAuthUI
+ 默认    17:37:30.104948+0800    SpringBoard    hook_iOS_ObjC_CommonClass.xm NSDictionary$dictionaryWithObjects$forKeys$count$:   [2] FBApplicationStoreRepositoryChangeValue=<null>
+ */
+NSString* Str_topItem = @"topItem";
+NSString* Str_NSFont = @"NSFont";
+NSString* Str_NSColor = @"NSColor";
+NSString* Str_FBApplicationStoreRepository = @"FBApplicationStoreRepository";
+
+//Class Class_NSString = NSClassFromString(@"NSString");
+Class Class_NSString = objc_getClass("NSString");
+
 /*------------------------------------------------------------------------------
  Common Functions
 ------------------------------------------------------------------------------*/
 
 /*---------- function prototype = declaration ----------*/
-BOOL isRelated(NSString *curStr);
+BOOL isOmittedStr(NSString *curStr);
+BOOL isOmitted(id curId);
+BOOL isRelatedStr(NSString *curStr);
 void hookNSString_commonLogic(NSString* curStr);
 
 /*---------- functions ----------*/
 
-BOOL isRelated(NSString *curStr){
-    BOOL isRelated = FALSE;
+BOOL isOmittedStr(NSString *curStr){
+    BOOL isOmittedStr = FALSE;
+    if (curStr){
+        // - isEqualToString:
+        // - hasPrefix:
+        // - hasSuffix:
+        // - containsString:
+
+        BOOL isTopItem = [curStr isEqualToString: Str_topItem];
+        BOOL isNSFont = [curStr hasPrefix: Str_NSFont];
+        BOOL isNSColor = [curStr hasPrefix: Str_NSColor];
+        BOOL isFBApplicationStoreRepository = [curStr containsString: Str_FBApplicationStoreRepository];
+
+        isOmittedStr = isTopItem || isNSFont || isNSColor || isFBApplicationStoreRepository;
+    }
+    return isOmittedStr;
+}
+
+BOOL isOmitted(id curId){
+    BOOL isOmitted = FALSE;
+    BOOL isNsstr = [curId isKindOfClass: Class_NSString];
+//    iosLogInfo("isNsstr=%s", boolToStr(isNsstr));
+    if (isNsstr){
+        isOmitted = isOmittedStr((NSString*)curId);
+//        iosLogInfo("isNsstr=%s -> isOmitted=%s", boolToStr(isNsstr), boolToStr(isOmitted));
+    }
+    return isOmitted;
+}
+
+
+BOOL isRelatedStr(NSString *curStr){
+    BOOL isRelatedStr = FALSE;
     if (curStr){
         // - isEqualToString:
         // - hasPrefix:
@@ -38,17 +88,17 @@ BOOL isRelated(NSString *curStr){
         BOOL isApple = [curStr hasPrefix: Str_apple];
         BOOL isPreferences = [curStr isEqualToString: Str_Preferences];
 
-        isRelated = isPreferences || isApple;
+        isRelatedStr = isPreferences || isApple;
     }
-    return isRelated;
+    return isRelatedStr;
 }
 
 void hookNSString_commonLogic(NSString* curStr){
-    if (isRelated(curStr)){
+    if (isRelatedStr(curStr)){
         iosLogInfo("curStr=%{public}@", curStr);
 
-        NSArray *btArr = [CrifanLibiOS printCallStack];
-        iosLogInfo("btArr=%{public}@", btArr);
+        NSArray *callStackArr = [CrifanLibiOS printCallStack];
+        iosLogInfo("callStackArr=%{public}@", callStackArr);
     }
 }
 
@@ -172,15 +222,18 @@ void hookNSString_commonLogic(NSString* curStr){
     id retNewDict = %orig;
 //    iosLogInfo("cnt=%lu, keys=%{public}@, objects=%{public}@ -> retNewDict=%{public}@", cnt, *keys, *objects, retNewDict);
 //    iosLogInfo("cnt=%lu, keys=%{public}@, objects=%{public}@ -> retNewDict=%{public}@", cnt, keys, objects, retNewDict);
+    
+//    if ((7 == cnt) || (1 == cnt)) {
+        iosLogInfo("cnt=%lu -> retNewDict=%{public}@", cnt, retNewDict);
+        for (NSInteger i = 0; i < cnt; i++) {
+            id curKey = keys[i];
+            id curValObj = objects[i];
+            if (!isOmitted(curKey)){
+                iosLogInfo("  [%lu] %{public}@=%{public}@", i, curKey, curValObj);
+            }
+        }
+//    }
 
-    iosLogInfo("cnt=%lu -> retNewDict=%{public}@", cnt, retNewDict);
-//    NSUInteger keyIdx = 0;
-//    for(id curKey in objects){
-    for (NSInteger i = 0; i < cnt; i++) {
-        id curKey = keys[i];
-        id curValObj = objects[i];
-        iosLogInfo("  [%lu] %{public}@=%{public}@", i, curKey, curValObj);
-    }
     return retNewDict;
 }
 

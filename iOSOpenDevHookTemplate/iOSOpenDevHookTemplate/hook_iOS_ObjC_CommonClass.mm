@@ -5,7 +5,7 @@
 
 
 
-static NSString* LastUpdate = @"20241123_1531";
+static NSString* LastUpdate = @"20241206_1746";
 
 #import "HookLogiOS.h"
 #import "CrifanLib.h"
@@ -23,13 +23,63 @@ NSString* Str_Preferences = @"Preferences";
 
 
 
-BOOL isRelated(NSString *curStr);
+
+
+
+
+
+NSString* Str_topItem = @"topItem";
+NSString* Str_NSFont = @"NSFont";
+NSString* Str_NSColor = @"NSColor";
+NSString* Str_FBApplicationStoreRepository = @"FBApplicationStoreRepository";
+
+
+Class Class_NSString = objc_getClass("NSString");
+
+
+
+
+
+
+BOOL isOmittedStr(NSString *curStr);
+BOOL isOmitted(id curId);
+BOOL isRelatedStr(NSString *curStr);
 void hookNSString_commonLogic(NSString* curStr);
 
 
 
-BOOL isRelated(NSString *curStr){
-    BOOL isRelated = FALSE;
+BOOL isOmittedStr(NSString *curStr){
+    BOOL isOmittedStr = FALSE;
+    if (curStr){
+        
+        
+        
+        
+
+        BOOL isTopItem = [curStr isEqualToString: Str_topItem];
+        BOOL isNSFont = [curStr hasPrefix: Str_NSFont];
+        BOOL isNSColor = [curStr hasPrefix: Str_NSColor];
+        BOOL isFBApplicationStoreRepository = [curStr containsString: Str_FBApplicationStoreRepository];
+
+        isOmittedStr = isTopItem || isNSFont || isNSColor || isFBApplicationStoreRepository;
+    }
+    return isOmittedStr;
+}
+
+BOOL isOmitted(id curId){
+    BOOL isOmitted = FALSE;
+    BOOL isNsstr = [curId isKindOfClass: Class_NSString];
+
+    if (isNsstr){
+        isOmitted = isOmittedStr((NSString*)curId);
+
+    }
+    return isOmitted;
+}
+
+
+BOOL isRelatedStr(NSString *curStr){
+    BOOL isRelatedStr = FALSE;
     if (curStr){
         
         
@@ -39,17 +89,17 @@ BOOL isRelated(NSString *curStr){
         BOOL isApple = [curStr hasPrefix: Str_apple];
         BOOL isPreferences = [curStr isEqualToString: Str_Preferences];
 
-        isRelated = isPreferences || isApple;
+        isRelatedStr = isPreferences || isApple;
     }
-    return isRelated;
+    return isRelatedStr;
 }
 
 void hookNSString_commonLogic(NSString* curStr){
-    if (isRelated(curStr)){
+    if (isRelatedStr(curStr)){
         iosLogInfo("curStr=%{public}@", curStr);
 
-        NSArray *btArr = [CrifanLibiOS printCallStack];
-        iosLogInfo("btArr=%{public}@", btArr);
+        NSArray *callStackArr = [CrifanLibiOS printCallStack];
+        iosLogInfo("callStackArr=%{public}@", callStackArr);
     }
 }
 
@@ -80,10 +130,10 @@ void hookNSString_commonLogic(NSString* curStr){
 
 __asm__(".linker_option \"-framework\", \"CydiaSubstrate\"");
 
-@class NSError; @class NSString; @class CTCarrier; @class NSHTTPURLResponse; @class UIDevice; @class NSDictionary; @class NSURL; @class NSURLRequest; @class NSMutableURLRequest; @class NSPropertyListSerialization; @class NSMutableDictionary; 
+@class NSMutableURLRequest; @class NSURLRequest; @class NSString; @class NSDictionary; @class UIDevice; @class CTCarrier; @class NSURL; @class NSPropertyListSerialization; @class NSHTTPURLResponse; @class NSMutableDictionary; @class NSError; 
 static NSString* (*_logos_orig$_ungrouped$NSString$initWithBytes$length$encoding$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const void *, NSUInteger, int) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithBytes$length$encoding$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const void *, NSUInteger, int) _LOGOS_RETURN_RETAINED; static NSString* (*_logos_orig$_ungrouped$NSString$initWithBytesNoCopy$length$encoding$freeWhenDone$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, void *, NSUInteger, int, BOOL) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithBytesNoCopy$length$encoding$freeWhenDone$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, void *, NSUInteger, int, BOOL) _LOGOS_RETURN_RETAINED; static NSString* (*_logos_orig$_ungrouped$NSString$initWithCharacters$length$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const unsigned short *, NSUInteger) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithCharacters$length$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const unsigned short *, NSUInteger) _LOGOS_RETURN_RETAINED; static NSString* (*_logos_orig$_ungrouped$NSString$initWithCharactersNoCopy$length$freeWhenDone$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, unsigned short *, NSUInteger, BOOL) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithCharactersNoCopy$length$freeWhenDone$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, unsigned short *, NSUInteger, BOOL) _LOGOS_RETURN_RETAINED; static NSString* (*_logos_orig$_ungrouped$NSString$initWithCString$encoding$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const char *, int) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithCString$encoding$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const char *, int) _LOGOS_RETURN_RETAINED; static NSString* (*_logos_orig$_ungrouped$NSString$initWithUTF8String$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const char *) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithUTF8String$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, const char *) _LOGOS_RETURN_RETAINED; static NSString* (*_logos_orig$_ungrouped$NSString$initWithData$encoding$)(_LOGOS_SELF_TYPE_INIT NSString*, SEL, NSData *, int) _LOGOS_RETURN_RETAINED; static NSString* _logos_method$_ungrouped$NSString$initWithData$encoding$(_LOGOS_SELF_TYPE_INIT NSString*, SEL, NSData *, int) _LOGOS_RETURN_RETAINED; static id (*_logos_meta_orig$_ungrouped$NSString$stringWithCharacters$length$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, const unsigned short *, NSUInteger); static id _logos_meta_method$_ungrouped$NSString$stringWithCharacters$length$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, const unsigned short *, NSUInteger); static id (*_logos_meta_orig$_ungrouped$NSString$stringWithCString$encoding$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, const char *, int); static id _logos_meta_method$_ungrouped$NSString$stringWithCString$encoding$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, const char *, int); static id (*_logos_meta_orig$_ungrouped$NSString$stringWithUTF8String$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, const char *); static id _logos_meta_method$_ungrouped$NSString$stringWithUTF8String$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, const char *); static void (*_logos_orig$_ungrouped$NSMutableDictionary$setObject$forKeyedSubscript$)(_LOGOS_SELF_TYPE_NORMAL NSMutableDictionary* _LOGOS_SELF_CONST, SEL, id, id<NSCopying>); static void _logos_method$_ungrouped$NSMutableDictionary$setObject$forKeyedSubscript$(_LOGOS_SELF_TYPE_NORMAL NSMutableDictionary* _LOGOS_SELF_CONST, SEL, id, id<NSCopying>); static void (*_logos_orig$_ungrouped$NSMutableDictionary$setObject$forKey$)(_LOGOS_SELF_TYPE_NORMAL NSMutableDictionary* _LOGOS_SELF_CONST, SEL, id, id<NSCopying>); static void _logos_method$_ungrouped$NSMutableDictionary$setObject$forKey$(_LOGOS_SELF_TYPE_NORMAL NSMutableDictionary* _LOGOS_SELF_CONST, SEL, id, id<NSCopying>); static NSDictionary* (*_logos_meta_orig$_ungrouped$NSDictionary$dictionaryWithObjects$forKeys$count$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, id const *, id<NSCopying> const *, NSUInteger); static NSDictionary* _logos_meta_method$_ungrouped$NSDictionary$dictionaryWithObjects$forKeys$count$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, id const *, id<NSCopying> const *, NSUInteger); static NSDictionary<NSString *, id> * (*_logos_meta_orig$_ungrouped$NSDictionary$dictionaryWithContentsOfURL$error$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSURL *, NSError * _Nullable *); static NSDictionary<NSString *, id> * _logos_meta_method$_ungrouped$NSDictionary$dictionaryWithContentsOfURL$error$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSURL *, NSError * _Nullable *); static NSURL* (*_logos_meta_orig$_ungrouped$NSURL$URLWithString$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSString *); static NSURL* _logos_meta_method$_ungrouped$NSURL$URLWithString$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSString *); static NSURL* (*_logos_orig$_ungrouped$NSURL$initWithString$)(_LOGOS_SELF_TYPE_INIT NSURL*, SEL, NSString *) _LOGOS_RETURN_RETAINED; static NSURL* _logos_method$_ungrouped$NSURL$initWithString$(_LOGOS_SELF_TYPE_INIT NSURL*, SEL, NSString *) _LOGOS_RETURN_RETAINED; static NSURLRequest* (*_logos_meta_orig$_ungrouped$NSURLRequest$requestWithURL$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSURL *); static NSURLRequest* _logos_meta_method$_ungrouped$NSURLRequest$requestWithURL$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSURL *); static NSURLRequest* (*_logos_meta_orig$_ungrouped$NSURLRequest$requestWithURL$cachePolicy$timeoutInterval$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSURL *, NSURLRequestCachePolicy, NSTimeInterval); static NSURLRequest* _logos_meta_method$_ungrouped$NSURLRequest$requestWithURL$cachePolicy$timeoutInterval$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSURL *, NSURLRequestCachePolicy, NSTimeInterval); static NSURLRequest* (*_logos_orig$_ungrouped$NSURLRequest$initWithURL$)(_LOGOS_SELF_TYPE_NORMAL NSURLRequest* _LOGOS_SELF_CONST, SEL, NSURL *); static NSURLRequest* _logos_method$_ungrouped$NSURLRequest$initWithURL$(_LOGOS_SELF_TYPE_NORMAL NSURLRequest* _LOGOS_SELF_CONST, SEL, NSURL *); static NSURLRequest* (*_logos_orig$_ungrouped$NSURLRequest$initWithURL$cachePolicy$timeoutInterval$)(_LOGOS_SELF_TYPE_NORMAL NSURLRequest* _LOGOS_SELF_CONST, SEL, NSURL *, NSURLRequestCachePolicy, NSTimeInterval); static NSURLRequest* _logos_method$_ungrouped$NSURLRequest$initWithURL$cachePolicy$timeoutInterval$(_LOGOS_SELF_TYPE_NORMAL NSURLRequest* _LOGOS_SELF_CONST, SEL, NSURL *, NSURLRequestCachePolicy, NSTimeInterval); static void (*_logos_orig$_ungrouped$NSMutableURLRequest$setHTTPBody$)(_LOGOS_SELF_TYPE_NORMAL NSMutableURLRequest* _LOGOS_SELF_CONST, SEL, NSData*); static void _logos_method$_ungrouped$NSMutableURLRequest$setHTTPBody$(_LOGOS_SELF_TYPE_NORMAL NSMutableURLRequest* _LOGOS_SELF_CONST, SEL, NSData*); static void (*_logos_orig$_ungrouped$NSMutableURLRequest$setURL$)(_LOGOS_SELF_TYPE_NORMAL NSMutableURLRequest* _LOGOS_SELF_CONST, SEL, NSURL*); static void _logos_method$_ungrouped$NSMutableURLRequest$setURL$(_LOGOS_SELF_TYPE_NORMAL NSMutableURLRequest* _LOGOS_SELF_CONST, SEL, NSURL*); static NSHTTPURLResponse* (*_logos_orig$_ungrouped$NSHTTPURLResponse$initWithURL$statusCode$HTTPVersion$headerFields$)(_LOGOS_SELF_TYPE_NORMAL NSHTTPURLResponse* _LOGOS_SELF_CONST, SEL, NSURL *, NSInteger, NSString *, NSDictionary<NSString *,NSString *> *); static NSHTTPURLResponse* _logos_method$_ungrouped$NSHTTPURLResponse$initWithURL$statusCode$HTTPVersion$headerFields$(_LOGOS_SELF_TYPE_NORMAL NSHTTPURLResponse* _LOGOS_SELF_CONST, SEL, NSURL *, NSInteger, NSString *, NSDictionary<NSString *,NSString *> *); static NSDictionary * (*_logos_orig$_ungrouped$NSHTTPURLResponse$allHeaderFields)(_LOGOS_SELF_TYPE_NORMAL NSHTTPURLResponse* _LOGOS_SELF_CONST, SEL); static NSDictionary * _logos_method$_ungrouped$NSHTTPURLResponse$allHeaderFields(_LOGOS_SELF_TYPE_NORMAL NSHTTPURLResponse* _LOGOS_SELF_CONST, SEL); static NSInteger (*_logos_orig$_ungrouped$NSHTTPURLResponse$statusCode)(_LOGOS_SELF_TYPE_NORMAL NSHTTPURLResponse* _LOGOS_SELF_CONST, SEL); static NSInteger _logos_method$_ungrouped$NSHTTPURLResponse$statusCode(_LOGOS_SELF_TYPE_NORMAL NSHTTPURLResponse* _LOGOS_SELF_CONST, SEL); static NSData * (*_logos_meta_orig$_ungrouped$NSPropertyListSerialization$dataWithPropertyList$format$options$error$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, id, NSPropertyListFormat, NSPropertyListWriteOptions, NSError **); static NSData * _logos_meta_method$_ungrouped$NSPropertyListSerialization$dataWithPropertyList$format$options$error$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, id, NSPropertyListFormat, NSPropertyListWriteOptions, NSError **); static NSError* (*_logos_meta_orig$_ungrouped$NSError$errorWithDomain$code$userInfo$)(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSErrorDomain, NSInteger, NSDictionary<NSErrorUserInfoKey, id> *); static NSError* _logos_meta_method$_ungrouped$NSError$errorWithDomain$code$userInfo$(_LOGOS_SELF_TYPE_NORMAL Class _LOGOS_SELF_CONST, SEL, NSErrorDomain, NSInteger, NSDictionary<NSErrorUserInfoKey, id> *); static NSError* (*_logos_orig$_ungrouped$NSError$initWithDomain$code$userInfo$)(_LOGOS_SELF_TYPE_INIT NSError*, SEL, NSErrorDomain, NSInteger, NSDictionary<NSErrorUserInfoKey, id> *) _LOGOS_RETURN_RETAINED; static NSError* _logos_method$_ungrouped$NSError$initWithDomain$code$userInfo$(_LOGOS_SELF_TYPE_INIT NSError*, SEL, NSErrorDomain, NSInteger, NSDictionary<NSErrorUserInfoKey, id> *) _LOGOS_RETURN_RETAINED; static NSString * (*_logos_orig$_ungrouped$UIDevice$name)(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$UIDevice$name(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$UIDevice$systemName)(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$UIDevice$systemName(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$UIDevice$systemVersion)(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$UIDevice$systemVersion(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$UIDevice$model)(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$UIDevice$model(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSUUID * (*_logos_orig$_ungrouped$UIDevice$identifierForVendor)(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static NSUUID * _logos_method$_ungrouped$UIDevice$identifierForVendor(_LOGOS_SELF_TYPE_NORMAL UIDevice* _LOGOS_SELF_CONST, SEL); static BOOL (*_logos_orig$_ungrouped$CTCarrier$allowsVOIP)(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static BOOL _logos_method$_ungrouped$CTCarrier$allowsVOIP(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$CTCarrier$carrierName)(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$CTCarrier$carrierName(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$CTCarrier$isoCountryCode)(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$CTCarrier$isoCountryCode(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$CTCarrier$mobileCountryCode)(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$CTCarrier$mobileCountryCode(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * (*_logos_orig$_ungrouped$CTCarrier$mobileNetworkCode)(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); static NSString * _logos_method$_ungrouped$CTCarrier$mobileNetworkCode(_LOGOS_SELF_TYPE_NORMAL CTCarrier* _LOGOS_SELF_CONST, SEL); 
 
-#line 59 "/Users/crifan/dev/dev_root/crifan/github/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/hook_iOS_ObjC_CommonClass.xm"
+#line 109 "/Users/crifan/dev/dev_root/crifan/github/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/hook_iOS_ObjC_CommonClass.xm"
 
 
 static NSString* _logos_method$_ungrouped$NSString$initWithBytes$length$encoding$(_LOGOS_SELF_TYPE_INIT NSString* __unused self, SEL __unused _cmd, const void * bytes, NSUInteger len, int encoding) _LOGOS_RETURN_RETAINED{
@@ -200,15 +250,18 @@ static NSDictionary* _logos_meta_method$_ungrouped$NSDictionary$dictionaryWithOb
     id retNewDict = _logos_meta_orig$_ungrouped$NSDictionary$dictionaryWithObjects$forKeys$count$(self, _cmd, objects, keys, cnt);
 
 
+    
 
-    iosLogInfo("cnt=%lu -> retNewDict=%{public}@", cnt, retNewDict);
+        iosLogInfo("cnt=%lu -> retNewDict=%{public}@", cnt, retNewDict);
+        for (NSInteger i = 0; i < cnt; i++) {
+            id curKey = keys[i];
+            id curValObj = objects[i];
+            if (!isOmitted(curKey)){
+                iosLogInfo("  [%lu] %{public}@=%{public}@", i, curKey, curValObj);
+            }
+        }
 
 
-    for (NSInteger i = 0; i < cnt; i++) {
-        id curKey = keys[i];
-        id curValObj = objects[i];
-        iosLogInfo("  [%lu] %{public}@=%{public}@", i, curKey, curValObj);
-    }
     return retNewDict;
 }
 
@@ -471,9 +524,9 @@ static NSString * _logos_method$_ungrouped$CTCarrier$mobileNetworkCode(_LOGOS_SE
 
 
 
-static __attribute__((constructor)) void _logosLocalCtor_39aa78d7(int __unused argc, char __unused **argv, char __unused **envp) {
+static __attribute__((constructor)) void _logosLocalCtor_952e7dc1(int __unused argc, char __unused **argv, char __unused **envp) {
     iosLogInfo("%@: %s", LastUpdate, "hook_iOS_ObjC_CommonClass ctor");
 }
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$NSString = objc_getClass("NSString"); Class _logos_metaclass$_ungrouped$NSString = object_getClass(_logos_class$_ungrouped$NSString); { MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithBytes:length:encoding:), (IMP)&_logos_method$_ungrouped$NSString$initWithBytes$length$encoding$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithBytes$length$encoding$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithBytesNoCopy:length:encoding:freeWhenDone:), (IMP)&_logos_method$_ungrouped$NSString$initWithBytesNoCopy$length$encoding$freeWhenDone$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithBytesNoCopy$length$encoding$freeWhenDone$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithCharacters:length:), (IMP)&_logos_method$_ungrouped$NSString$initWithCharacters$length$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithCharacters$length$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithCharactersNoCopy:length:freeWhenDone:), (IMP)&_logos_method$_ungrouped$NSString$initWithCharactersNoCopy$length$freeWhenDone$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithCharactersNoCopy$length$freeWhenDone$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithCString:encoding:), (IMP)&_logos_method$_ungrouped$NSString$initWithCString$encoding$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithCString$encoding$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithUTF8String:), (IMP)&_logos_method$_ungrouped$NSString$initWithUTF8String$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithUTF8String$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSString, @selector(initWithData:encoding:), (IMP)&_logos_method$_ungrouped$NSString$initWithData$encoding$, (IMP*)&_logos_orig$_ungrouped$NSString$initWithData$encoding$);}{ MSHookMessageEx(_logos_metaclass$_ungrouped$NSString, @selector(stringWithCharacters:length:), (IMP)&_logos_meta_method$_ungrouped$NSString$stringWithCharacters$length$, (IMP*)&_logos_meta_orig$_ungrouped$NSString$stringWithCharacters$length$);}{ MSHookMessageEx(_logos_metaclass$_ungrouped$NSString, @selector(stringWithCString:encoding:), (IMP)&_logos_meta_method$_ungrouped$NSString$stringWithCString$encoding$, (IMP*)&_logos_meta_orig$_ungrouped$NSString$stringWithCString$encoding$);}{ MSHookMessageEx(_logos_metaclass$_ungrouped$NSString, @selector(stringWithUTF8String:), (IMP)&_logos_meta_method$_ungrouped$NSString$stringWithUTF8String$, (IMP*)&_logos_meta_orig$_ungrouped$NSString$stringWithUTF8String$);}Class _logos_class$_ungrouped$NSMutableDictionary = objc_getClass("NSMutableDictionary"); { MSHookMessageEx(_logos_class$_ungrouped$NSMutableDictionary, @selector(setObject:forKeyedSubscript:), (IMP)&_logos_method$_ungrouped$NSMutableDictionary$setObject$forKeyedSubscript$, (IMP*)&_logos_orig$_ungrouped$NSMutableDictionary$setObject$forKeyedSubscript$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSMutableDictionary, @selector(setObject:forKey:), (IMP)&_logos_method$_ungrouped$NSMutableDictionary$setObject$forKey$, (IMP*)&_logos_orig$_ungrouped$NSMutableDictionary$setObject$forKey$);}Class _logos_class$_ungrouped$NSDictionary = objc_getClass("NSDictionary"); Class _logos_metaclass$_ungrouped$NSDictionary = object_getClass(_logos_class$_ungrouped$NSDictionary); { MSHookMessageEx(_logos_metaclass$_ungrouped$NSDictionary, @selector(dictionaryWithObjects:forKeys:count:), (IMP)&_logos_meta_method$_ungrouped$NSDictionary$dictionaryWithObjects$forKeys$count$, (IMP*)&_logos_meta_orig$_ungrouped$NSDictionary$dictionaryWithObjects$forKeys$count$);}{ MSHookMessageEx(_logos_metaclass$_ungrouped$NSDictionary, @selector(dictionaryWithContentsOfURL:error:), (IMP)&_logos_meta_method$_ungrouped$NSDictionary$dictionaryWithContentsOfURL$error$, (IMP*)&_logos_meta_orig$_ungrouped$NSDictionary$dictionaryWithContentsOfURL$error$);}Class _logos_class$_ungrouped$NSURL = objc_getClass("NSURL"); Class _logos_metaclass$_ungrouped$NSURL = object_getClass(_logos_class$_ungrouped$NSURL); { MSHookMessageEx(_logos_metaclass$_ungrouped$NSURL, @selector(URLWithString:), (IMP)&_logos_meta_method$_ungrouped$NSURL$URLWithString$, (IMP*)&_logos_meta_orig$_ungrouped$NSURL$URLWithString$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSURL, @selector(initWithString:), (IMP)&_logos_method$_ungrouped$NSURL$initWithString$, (IMP*)&_logos_orig$_ungrouped$NSURL$initWithString$);}Class _logos_class$_ungrouped$NSURLRequest = objc_getClass("NSURLRequest"); Class _logos_metaclass$_ungrouped$NSURLRequest = object_getClass(_logos_class$_ungrouped$NSURLRequest); { MSHookMessageEx(_logos_metaclass$_ungrouped$NSURLRequest, @selector(requestWithURL:), (IMP)&_logos_meta_method$_ungrouped$NSURLRequest$requestWithURL$, (IMP*)&_logos_meta_orig$_ungrouped$NSURLRequest$requestWithURL$);}{ MSHookMessageEx(_logos_metaclass$_ungrouped$NSURLRequest, @selector(requestWithURL:cachePolicy:timeoutInterval:), (IMP)&_logos_meta_method$_ungrouped$NSURLRequest$requestWithURL$cachePolicy$timeoutInterval$, (IMP*)&_logos_meta_orig$_ungrouped$NSURLRequest$requestWithURL$cachePolicy$timeoutInterval$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSURLRequest, @selector(initWithURL:), (IMP)&_logos_method$_ungrouped$NSURLRequest$initWithURL$, (IMP*)&_logos_orig$_ungrouped$NSURLRequest$initWithURL$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSURLRequest, @selector(initWithURL:cachePolicy:timeoutInterval:), (IMP)&_logos_method$_ungrouped$NSURLRequest$initWithURL$cachePolicy$timeoutInterval$, (IMP*)&_logos_orig$_ungrouped$NSURLRequest$initWithURL$cachePolicy$timeoutInterval$);}Class _logos_class$_ungrouped$NSMutableURLRequest = objc_getClass("NSMutableURLRequest"); { MSHookMessageEx(_logos_class$_ungrouped$NSMutableURLRequest, @selector(setHTTPBody:), (IMP)&_logos_method$_ungrouped$NSMutableURLRequest$setHTTPBody$, (IMP*)&_logos_orig$_ungrouped$NSMutableURLRequest$setHTTPBody$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSMutableURLRequest, @selector(setURL:), (IMP)&_logos_method$_ungrouped$NSMutableURLRequest$setURL$, (IMP*)&_logos_orig$_ungrouped$NSMutableURLRequest$setURL$);}Class _logos_class$_ungrouped$NSHTTPURLResponse = objc_getClass("NSHTTPURLResponse"); { MSHookMessageEx(_logos_class$_ungrouped$NSHTTPURLResponse, @selector(initWithURL:statusCode:HTTPVersion:headerFields:), (IMP)&_logos_method$_ungrouped$NSHTTPURLResponse$initWithURL$statusCode$HTTPVersion$headerFields$, (IMP*)&_logos_orig$_ungrouped$NSHTTPURLResponse$initWithURL$statusCode$HTTPVersion$headerFields$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSHTTPURLResponse, @selector(allHeaderFields), (IMP)&_logos_method$_ungrouped$NSHTTPURLResponse$allHeaderFields, (IMP*)&_logos_orig$_ungrouped$NSHTTPURLResponse$allHeaderFields);}{ MSHookMessageEx(_logos_class$_ungrouped$NSHTTPURLResponse, @selector(statusCode), (IMP)&_logos_method$_ungrouped$NSHTTPURLResponse$statusCode, (IMP*)&_logos_orig$_ungrouped$NSHTTPURLResponse$statusCode);}Class _logos_class$_ungrouped$NSPropertyListSerialization = objc_getClass("NSPropertyListSerialization"); Class _logos_metaclass$_ungrouped$NSPropertyListSerialization = object_getClass(_logos_class$_ungrouped$NSPropertyListSerialization); { MSHookMessageEx(_logos_metaclass$_ungrouped$NSPropertyListSerialization, @selector(dataWithPropertyList:format:options:error:), (IMP)&_logos_meta_method$_ungrouped$NSPropertyListSerialization$dataWithPropertyList$format$options$error$, (IMP*)&_logos_meta_orig$_ungrouped$NSPropertyListSerialization$dataWithPropertyList$format$options$error$);}Class _logos_class$_ungrouped$NSError = objc_getClass("NSError"); Class _logos_metaclass$_ungrouped$NSError = object_getClass(_logos_class$_ungrouped$NSError); { MSHookMessageEx(_logos_metaclass$_ungrouped$NSError, @selector(errorWithDomain:code:userInfo:), (IMP)&_logos_meta_method$_ungrouped$NSError$errorWithDomain$code$userInfo$, (IMP*)&_logos_meta_orig$_ungrouped$NSError$errorWithDomain$code$userInfo$);}{ MSHookMessageEx(_logos_class$_ungrouped$NSError, @selector(initWithDomain:code:userInfo:), (IMP)&_logos_method$_ungrouped$NSError$initWithDomain$code$userInfo$, (IMP*)&_logos_orig$_ungrouped$NSError$initWithDomain$code$userInfo$);}Class _logos_class$_ungrouped$UIDevice = objc_getClass("UIDevice"); { MSHookMessageEx(_logos_class$_ungrouped$UIDevice, @selector(name), (IMP)&_logos_method$_ungrouped$UIDevice$name, (IMP*)&_logos_orig$_ungrouped$UIDevice$name);}{ MSHookMessageEx(_logos_class$_ungrouped$UIDevice, @selector(systemName), (IMP)&_logos_method$_ungrouped$UIDevice$systemName, (IMP*)&_logos_orig$_ungrouped$UIDevice$systemName);}{ MSHookMessageEx(_logos_class$_ungrouped$UIDevice, @selector(systemVersion), (IMP)&_logos_method$_ungrouped$UIDevice$systemVersion, (IMP*)&_logos_orig$_ungrouped$UIDevice$systemVersion);}{ MSHookMessageEx(_logos_class$_ungrouped$UIDevice, @selector(model), (IMP)&_logos_method$_ungrouped$UIDevice$model, (IMP*)&_logos_orig$_ungrouped$UIDevice$model);}{ MSHookMessageEx(_logos_class$_ungrouped$UIDevice, @selector(identifierForVendor), (IMP)&_logos_method$_ungrouped$UIDevice$identifierForVendor, (IMP*)&_logos_orig$_ungrouped$UIDevice$identifierForVendor);}Class _logos_class$_ungrouped$CTCarrier = objc_getClass("CTCarrier"); { MSHookMessageEx(_logos_class$_ungrouped$CTCarrier, @selector(allowsVOIP), (IMP)&_logos_method$_ungrouped$CTCarrier$allowsVOIP, (IMP*)&_logos_orig$_ungrouped$CTCarrier$allowsVOIP);}{ MSHookMessageEx(_logos_class$_ungrouped$CTCarrier, @selector(carrierName), (IMP)&_logos_method$_ungrouped$CTCarrier$carrierName, (IMP*)&_logos_orig$_ungrouped$CTCarrier$carrierName);}{ MSHookMessageEx(_logos_class$_ungrouped$CTCarrier, @selector(isoCountryCode), (IMP)&_logos_method$_ungrouped$CTCarrier$isoCountryCode, (IMP*)&_logos_orig$_ungrouped$CTCarrier$isoCountryCode);}{ MSHookMessageEx(_logos_class$_ungrouped$CTCarrier, @selector(mobileCountryCode), (IMP)&_logos_method$_ungrouped$CTCarrier$mobileCountryCode, (IMP*)&_logos_orig$_ungrouped$CTCarrier$mobileCountryCode);}{ MSHookMessageEx(_logos_class$_ungrouped$CTCarrier, @selector(mobileNetworkCode), (IMP)&_logos_method$_ungrouped$CTCarrier$mobileNetworkCode, (IMP*)&_logos_orig$_ungrouped$CTCarrier$mobileNetworkCode);}} }
-#line 449 "/Users/crifan/dev/dev_root/crifan/github/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/hook_iOS_ObjC_CommonClass.xm"
+#line 502 "/Users/crifan/dev/dev_root/crifan/github/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/iOSOpenDevHookTemplate/hook_iOS_ObjC_CommonClass.xm"

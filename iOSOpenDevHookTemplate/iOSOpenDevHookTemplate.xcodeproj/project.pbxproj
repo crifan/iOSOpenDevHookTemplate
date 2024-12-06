@@ -23,9 +23,9 @@
 		98CF52582CF16C9F00481C0B /* crifanLib.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524A2CF16C9F00481C0B /* crifanLib.c */; };
 		98CF52592CF16C9F00481C0B /* CrifanLibDemo.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524B2CF16C9F00481C0B /* CrifanLibDemo.c */; };
 		98CF525A2CF16C9F00481C0B /* JailbreakPathList.c in Sources */ = {isa = PBXBuildFile; fileRef = 98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */; };
-		98CF526A2CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52682CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm */; };
 		98CF526B2CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52692CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm */; };
 		98CF52802CF1CEAF00481C0B /* hook_native_misc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF527F2CF1CEAF00481C0B /* hook_native_misc.mm */; };
+		98CF52832CF4213E00481C0B /* hook_iOS_ObjC_CommonClass.mm in Sources */ = {isa = PBXBuildFile; fileRef = 98CF52822CF4213E00481C0B /* hook_iOS_ObjC_CommonClass.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,10 +53,10 @@
 		98CF524C2CF16C9F00481C0B /* JailbreakPathList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = JailbreakPathList.c; sourceTree = "<group>"; };
 		98CF52662CF1BB9000481C0B /* hook_iOS_ObjC_CommonClass.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_CommonClass.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		98CF52672CF1BC2000481C0B /* hook_iOS_ObjC_specific.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_specific.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		98CF52682CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_CommonClass.mm; sourceTree = "<group>"; };
 		98CF52692CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_specific.mm; sourceTree = "<group>"; };
 		98CF527E2CF1CAAD00481C0B /* hook_native_misc.xm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = hook_native_misc.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		98CF527F2CF1CEAF00481C0B /* hook_native_misc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_native_misc.mm; sourceTree = "<group>"; };
+		98CF52822CF4213E00481C0B /* hook_iOS_ObjC_CommonClass.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = hook_iOS_ObjC_CommonClass.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,14 +164,14 @@
 		98CF523D2CF16C9F00481C0B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				98CF52412CF16C9F00481C0B /* CrifanLibiOS.h */,
+				98CF52452CF16C9F00481C0B /* CrifanLibiOS.m */,
+				98CF52432CF16C9F00481C0B /* HookLogiOS.h */,
 				98CF523E2CF16C9F00481C0B /* HookLogiOS.m */,
+				98CF52422CF16C9F00481C0B /* JailbreakiOS.h */,
 				98CF523F2CF16C9F00481C0B /* JailbreakiOS.m */,
 				98CF52402CF16C9F00481C0B /* OpenFileiOS.h */,
-				98CF52412CF16C9F00481C0B /* CrifanLibiOS.h */,
-				98CF52422CF16C9F00481C0B /* JailbreakiOS.h */,
-				98CF52432CF16C9F00481C0B /* HookLogiOS.h */,
 				98CF52442CF16C9F00481C0B /* OpenFileiOS.m */,
-				98CF52452CF16C9F00481C0B /* CrifanLibiOS.m */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -202,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				98CF52662CF1BB9000481C0B /* hook_iOS_ObjC_CommonClass.xm */,
-				98CF52682CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm */,
+				98CF52822CF4213E00481C0B /* hook_iOS_ObjC_CommonClass.mm */,
 				98CF52672CF1BC2000481C0B /* hook_iOS_ObjC_specific.xm */,
 				98CF52692CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm */,
 			);
@@ -335,9 +335,9 @@
 				98CF52802CF1CEAF00481C0B /* hook_native_misc.mm in Sources */,
 				98CF52592CF16C9F00481C0B /* CrifanLibDemo.c in Sources */,
 				98CF526B2CF1BC5F00481C0B /* hook_iOS_ObjC_specific.mm in Sources */,
-				98CF526A2CF1BC5F00481C0B /* hook_iOS_ObjC_CommonClass.mm in Sources */,
 				98CF525A2CF16C9F00481C0B /* JailbreakPathList.c in Sources */,
 				98CF52582CF16C9F00481C0B /* crifanLib.c in Sources */,
+				98CF52832CF4213E00481C0B /* hook_iOS_ObjC_CommonClass.mm in Sources */,
 				98CF524E2CF16C9F00481C0B /* JailbreakiOS.m in Sources */,
 				98CF52542CF16C9F00481C0B /* CrifanLibiOS.m in Sources */,
 				98CF52532CF16C9F00481C0B /* OpenFileiOS.m in Sources */,
@@ -423,7 +423,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.22;
+				iOSOpenDevDevice = 192.168.2.37;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
@@ -454,7 +454,7 @@
 				USER_HEADER_SEARCH_PATHS = "";
 				iOSOpenDevBuildPackageOnAnyBuild = NO;
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.1.22;
+				iOSOpenDevDevice = 192.168.2.37;
 				iOSOpenDevInstallOnAnyBuild = NO;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
